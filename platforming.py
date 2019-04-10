@@ -27,6 +27,20 @@ ORANGE = (255, 125 , 0)
 # Game loop
 done = False
 
+# Classes
+
+class player(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        super().__init__()
+
+        self.image = image
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.health = 5
+    
+
 while not done:
     # Event processing (React to key presses, mouse clicks, etc.)
     ''' for now, we'll just check to see if the X is clicked '''
@@ -36,6 +50,18 @@ while not done:
 
     # Game logic (Check for collisions, update points, etc.)
 
+    pressed = pygame.key.get_pressed()
+
+    if pressed[pygame.K_LEFT]:
+        pass
+    elif pressed[pygame.K_RIGHT]:
+        pass
+           
+    if pressed[pygame.K_UP]:
+        pass 
+    elif pressed[pygame.K_DOWN]:
+        pass
+    
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
     
 
