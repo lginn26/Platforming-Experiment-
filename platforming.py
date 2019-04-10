@@ -16,6 +16,9 @@ pygame.display.set_caption(TITLE)
 clock = pygame.time.Clock()
 refresh_rate = 60
 
+# Images
+player_img = pygame.image.load('heart.png').convert_alpha()
+
 # Colors
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
@@ -29,18 +32,36 @@ done = False
 
 # Classes
 
-class player(pygame.sprite.Sprite):
+class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, image):
         super().__init__()
 
         self.image = image
-        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
+        
         self.rect.x = x
         self.rect.y = y
-        self.health = 5
-    
 
+        self.speed = 5
+
+    
+    
+# Functions
+
+def setup():
+    global done, player
+
+    '''Create player object'''
+    player = Player(SIZE[0]//2, SIZE[1]//2, )
+
+    player = pygame.sprite.GroupSingle()
+    player.add(player)
+
+    '''Set Stage'''
+    stage = START
+    done = False
+
+setup()
 while not done:
     # Event processing (React to key presses, mouse clicks, etc.)
     ''' for now, we'll just check to see if the X is clicked '''
